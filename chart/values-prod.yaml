@@ -1,0 +1,8 @@
+global:
+  environment: prod
+
+api:
+  replicaCount: 3
+
+worker:
+  replicaCount: 2

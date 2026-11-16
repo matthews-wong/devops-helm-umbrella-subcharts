@@ -1,0 +1,11 @@
+# Shared with every subchart as .Values.global.*
+global:
+  environment: dev
+  partOf: platform
+  imagePullPolicy: IfNotPresent
+
+api:
+  enabled: true
+
+worker:
+  enabled: true

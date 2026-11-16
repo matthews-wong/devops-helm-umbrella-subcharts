@@ -1,0 +1,5 @@
+global:
+  environment: dev
+
+api:
+  replicaCount: 1
