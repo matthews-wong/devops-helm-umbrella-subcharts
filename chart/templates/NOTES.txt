@@ -1,0 +1,2 @@
+Release {{ .Release.Name }} installed for environment {{ .Values.global.environment }}.
+Enabled components:{{ if .Values.api.enabled }} api{{ end }}{{ if .Values.worker.enabled }} worker{{ end }}
