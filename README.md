@@ -26,3 +26,15 @@ their own files.
 
 Runs `helm lint`, renders each environment through `kubeconform`, and checks
 the toggles. Requires `helm` and `kubeconform` on the PATH.
+
+## Notes
+
+- `global.*` is the only values path shared across subcharts. Each subchart
+  keeps its own defaults, so a subchart still lints on its own only when the
+  globals it reads are supplied (`--set global.partOf=...`).
+- `condition` keys (`api.enabled`, `worker.enabled`) are read from the parent
+  values, so toggles live in one place per environment.
+- Subcharts are vendored under `chart/charts/` and referenced via `file://`,
+  so there is no `helm dependency update` step.
+- The worker command is a placeholder loop for rendering and probes, not a
+  real consumer.
