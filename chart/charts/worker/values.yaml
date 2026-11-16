@@ -1,0 +1,19 @@
+replicaCount: 1
+
+image:
+  repository: busybox
+  tag: 1.37.0
+
+# Stand-in loop; replace with the real consumer command.
+command:
+  - sh
+  - -c
+  - while true; do echo "worker alive"; sleep 30; done
+
+resources:
+  requests:
+    cpu: 20m
+    memory: 16Mi
+  limits:
+    cpu: 100m
+    memory: 32Mi
