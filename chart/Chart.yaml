@@ -1,0 +1,15 @@
+apiVersion: v2
+name: platform
+description: Umbrella chart composing the api and worker subcharts
+type: application
+version: 0.1.0
+appVersion: "0.1.0"
+dependencies:
+  - name: api
+    version: 0.1.0
+    repository: file://charts/api
+    condition: api.enabled
+  - name: worker
+    version: 0.1.0
+    repository: file://charts/worker
+    condition: worker.enabled
